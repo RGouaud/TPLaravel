@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Create.tableReservationVehicule extends Migration
+class CreatetableReservationVehicule extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,19 @@ class Create.tableReservationVehicule extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('table_reservation_vehicule', function(bluePrint $table){
+            $table -> String('reservationId');
+            $table -> foreign('reservationId');
+            $table-> references('codeReservation');
+            $table-> on('reservation');
+            $table-> onDelete('cascade');
+            $table -> String('vehiculeId');
+            $table -> foreign('vehiculeId');
+            $table-> references('matricule');
+            $table-> on('reservation');
+            $table -> primary('vehiculeId', 'reservationId');      
+        });
+
     }
 
     /**

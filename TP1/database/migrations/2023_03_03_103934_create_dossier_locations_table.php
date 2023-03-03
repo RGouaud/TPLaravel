@@ -14,8 +14,9 @@ class CreateDossierLocationsTable extends Migration
     public function up()
     {
         Schema::create('dossier_locations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table-> Integer('idLocation');
+            $table-> Boolean('paye');
+            $table-> primary ('idLocation');
         });
     }
 
